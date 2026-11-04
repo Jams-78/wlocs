@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#2563eb">
+<title>流量消耗</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{font-family:-apple-system,system-ui,"PingFang SC","Microsoft YaHei",sans-serif;background:#f4f5f7;color:#222;display:flex;flex-direction:column;align-items:center;padding:calc(24px + env(safe-area-inset-top)) 16px calc(24px + env(safe-area-inset-bottom))}
+h1{font-size:22px;margin:8px 0 4px}
+.sub{color:#666;font-size:14px;margin-bottom:24px}
+.card{width:100%;max-width:420px;background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.06);text-align:center}
+.total{font-size:40px;font-weight:700;margin:4px 0}
+.label{color:#888;font-size:13px}
+#btn{width:100%;max-width:420px;margin:24px 0 12px;height:64px;font-size:20px;font-weight:600;border:0;border-radius:32px;background:#2563eb;color:#fff;touch-action:manipulation}
+#btn:active{transform:scale(.97)}
+#btn.busy{background:#94a3b8}
+.row{display:flex;gap:10px;width:100%;max-width:420px}
+.row button{flex:1;height:44px;border:0;border-radius:22px;background:#e5e7eb;font-size:15px;color:#333}
+#log{width:100%;max-width:420px;margin-top:16px;font-family:ui-monospace,Menlo,monospace;font-size:12px;line-height:1.6;color:#555;max-height:35vh;overflow:auto}
+#toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top));transform:translate(-50%,-150%);padding:12px 22px;border-radius:24px;color:#fff;font-size:16px;font-weight:600;transition:transform .3s;z-index:9;white-space:nowrap}
+#toast.show{transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<h1>流量消耗</h1>
+<div class="sub">每次运行随机消耗 1–3 KB</div>
+<div class="card">
+  <div class="label">累计已消耗</div>
+  <div class="total" id="total">0.00 KB</div>
+  <div class="label" id="count">共 0 次</div>
+</div>
+<button id="btn" type="button" onclick="run()">运行一次</button>
+<div class="row">
+  <button type="button" onclick="resetAll()">清零</button>
+</div>
+<div id="log"></div>
+<div id="toast"></div>
+<script>
+var total = 0, count = 0, busy = false;
+try { total = +localStorage.getItem('tc_total') || 0; count = +localStorage.getItem('tc_count') || 0; } catch (e) {}
+
+function $(id){ return document.getElementById(id); }
+function save(){ try { localStorage.setItem('tc_total', total); localStorage.setItem('tc_count', count); } catch (e) {} }
+function render(){ $('total').textContent = (total/1024).toFixed(2) + ' KB'; $('count').textContent = '共 ' + count + ' 次'; }
+function log(m){ var d = document.createElement('div'); d.textContent = m; $('log').insertBefore(d, $('log').firstChild); }
+var th;
+function toast(m, ok){
+  var t = $('toast'); t.textContent = m; t.style.background = ok ? '#16a34a' : '#dc2626';
+  t.className = 'show'; clearTimeout(th); th = setTimeout(function(){ t.className = ''; }, 2500);
+  if (navigator.vibrate) navigator.vibrate(ok ? 50 : [80, 60, 80]);
+}
+
+function sources(bytes){
+  var r = '&r=' + Date.now();
+  var mirror = [
+    'https://registry.npmmirror.com/react/18.2.0/files/LICENSE',
+    'https://registry.npmmirror.com/lodash/4.17.21/files/LICENSE',
+    'https://registry.npmmirror.com/vue/3.4.21/files/package.json'
+  ];
+  return [
+    { name: 'Cloudflare', url: 'https://speed.cloudflare.com/__down?bytes=' + bytes + r },
+    { name: 'jsDelivr', url: 'https://fastly.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js?v=' + Date.now(), range: bytes },
+    { name: 'httpbin', url: 'https://httpbin.org/bytes/' + bytes + '?x=1' + r },
+    { name: 'npmmirror', url: mirror[Math.floor(Math.random() * mirror.length)] + '?x=1' + r }
+  ];
+}
+
+function tryOne(src, cb){
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', src.url, true);
+  xhr.responseType = 'arraybuffer';
+  xhr.timeout = 6000;
+  if (src.range) xhr.setRequestHeader('Range', 'bytes=0-' + (src.range - 1));
+  xhr.onload = function(){
+    if ((xhr.status === 200 || xhr.status === 206) && xhr.response) cb(null, xhr.response.byteLength);
+    else cb('HTTP ' + xhr.status);
+  };
+  xhr.onerror = function(){ cb('网络错误'); };
+  xhr.ontimeout = function(){ cb('超时'); };
+  try { xhr.send(); } catch (e) { cb(e.message); }
+}
+
+function run(){
+  if (busy) return;
+  busy = true;
+  var btn = $('btn'); btn.className = 'busy'; btn.textContent = '运行中…';
+  var bytes = 1024 + Math.floor(Math.random() * 2049);
+  var list = sources(bytes), i = 0, t0 = Date.now(), errs = [];
+  function done(){ busy = false; btn.className = ''; btn.textContent = '运行一次'; }
+  function next(){
+    if (i >= list.length) {
+      log('全部失败：' + errs.join('；'));
+      toast('❌ 消耗失败：所有地址都连不上', false);
+      return done();
+    }
+    var src = list[i++];
+    tryOne(src, function(err, n){
+      if (err) { errs.push(src.name + ' ' + err); return next(); }
+      total += n; count++; save(); render();
+      var kb = (n/1024).toFixed(2);
+      log(new Date().toLocaleTimeString() + '  ' + kb + ' KB  ' + src.name + '  ' + (Date.now()-t0) + 'ms');
+      toast('✅ 消耗成功 ' + kb + ' KB', true);
+      done();
+    });
+  }
+  next();
+}
+
+function resetAll(){
+  if (!confirm('确定清零累计数据？')) return;
+  total = 0; count = 0; save(); render(); $('log').innerHTML = '';
+}
+render();
+</script>
+</body>
+</html>
