@@ -27,7 +27,7 @@ h1{font-size:22px;margin:8px 0 4px}
 </head>
 <body>
 <h1>流量消耗</h1>
-<div class="sub">每次运行随机消耗 1–3 KB</div>
+<div class="sub">每次运行消耗约 120 KB</div>
 <div class="card">
   <div class="label">累计已消耗</div>
   <div class="total" id="total">0.00 KB</div>
@@ -55,17 +55,11 @@ function toast(m, ok){
 }
 
 function sources(bytes){
-  var r = '&r=' + Date.now();
-  var mirror = [
-    'https://registry.npmmirror.com/react/18.2.0/files/LICENSE',
-    'https://registry.npmmirror.com/lodash/4.17.21/files/LICENSE',
-    'https://registry.npmmirror.com/vue/3.4.21/files/package.json'
-  ];
+  var t = Date.now();
   return [
-    { name: 'Cloudflare', url: 'https://speed.cloudflare.com/__down?bytes=' + bytes + r },
-    { name: 'jsDelivr', url: 'https://fastly.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js?v=' + Date.now(), range: bytes },
-    { name: 'httpbin', url: 'https://httpbin.org/bytes/' + bytes + '?x=1' + r },
-    { name: 'npmmirror', url: mirror[Math.floor(Math.random() * mirror.length)] + '?x=1' + r }
+    { name: 'Cloudflare', url: 'https://speed.cloudflare.com/__down?bytes=' + bytes + '&r=' + t },
+    { name: 'jsDelivr', url: 'https://fastly.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/webfonts/fa-solid-900.woff2?r=' + t, range: bytes },
+    { name: 'npmmirror', url: 'https://registry.npmmirror.com/@fortawesome/fontawesome-free/6.5.1/files/webfonts/fa-brands-400.woff2?r=' + t }
   ];
 }
 
@@ -73,7 +67,7 @@ function tryOne(src, cb){
   var xhr = new XMLHttpRequest();
   xhr.open('GET', src.url, true);
   xhr.responseType = 'arraybuffer';
-  xhr.timeout = 6000;
+  xhr.timeout = 15000;
   if (src.range) xhr.setRequestHeader('Range', 'bytes=0-' + (src.range - 1));
   xhr.onload = function(){
     if ((xhr.status === 200 || xhr.status === 206) && xhr.response) cb(null, xhr.response.byteLength);
@@ -88,7 +82,7 @@ function run(){
   if (busy) return;
   busy = true;
   var btn = $('btn'); btn.className = 'busy'; btn.textContent = '运行中…';
-  var bytes = 1024 + Math.floor(Math.random() * 2049);
+  var bytes = 120 * 1024;
   var list = sources(bytes), i = 0, t0 = Date.now(), errs = [];
   function done(){ busy = false; btn.className = ''; btn.textContent = '运行一次'; }
   function next(){
