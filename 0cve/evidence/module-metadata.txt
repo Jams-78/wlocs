@@ -1,0 +1,36 @@
+## kernel/98432/kpatch-cve98432.ko
+
+
+String dump of section '.modinfo':
+  [     0]  livepatch=Y
+  [     c]  license=GPL
+  [    18]  rhelversion=8.10
+  [    30]  depends=
+  [    39]  name=kpatch_cve98432
+  [    4e]  vermagic=4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions 
+
+
+## kernel/99999/livepatch_cve_2026_99999.orig.ko
+
+
+String dump of section '.modinfo':
+  [     0]  livepatch=Y
+  [     c]  license=GPL
+  [    18]  rhelversion=8.10
+  [    30]  depends=
+  [    39]  name=livepatch_cve_2026_99999
+  [    57]  vermagic=4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions 
+
+
+## kernel/cumulative-cdo/livepatch_cve_2026_99999_98432.ko
+
+
+String dump of section '.modinfo':
+  [     0]  livepatch=Y
+  [     c]  license=GPL
+  [    18]  rhelversion=8.10
+  [    30]  depends=
+  [    39]  name=livepatch_cve_2026_99999_98432
+  [    5d]  vermagic=4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions 
+
+
