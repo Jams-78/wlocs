@@ -1,0 +1,372 @@
+{
+  "schema": "0cve.publication-catalog.v1",
+  "generated_on": "2026-11-08",
+  "repository": "https://github.com/Jams-78/wlocs",
+  "review_branch": "cursor/cve-hotpatch-publication-2088",
+  "review_branch_tree": "https://github.com/Jams-78/wlocs/tree/cursor/cve-hotpatch-publication-2088/0cve",
+  "link_label": "review_branch",
+  "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+  "release": null,
+  "release_created": false,
+  "tests_rerun": false,
+  "kernel_modules_published": false,
+  "vermagic_required": "4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions",
+  "php_tarball_sha256": "01baf7a34c856d2c552121fbad7296a8cde18389ce83db32f18252bc1cee4dd6",
+  "php_tarball_url": "https://www.php.net/distributions/php-7.2.24.tar.gz",
+  "items": [
+    {
+      "availability": "published",
+      "path": "0cve/README.md",
+      "bytes": 3713,
+      "sha256": "5fbbe4760f07dff3d872f37dc7ffdfb3a88b171b6f914124ff7326a40a1cd777",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/README.md",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/README.md",
+      "id": "index",
+      "cve": [],
+      "artifact_type": "guide",
+      "version": "2026-11-08",
+      "applicability": "review branch index",
+      "test_limits": "historical tests not rerun",
+      "blockers": [],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/kernel/cve-2026-98432/cve-2026-98432-kfree_rcu.patch",
+      "bytes": 1495,
+      "sha256": "d83b4f3661c4d9fde90570ed2ed58fea6c765bd09b9424912c1aacf8f06412bb",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-98432/cve-2026-98432-kfree_rcu.patch",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/cve-2026-98432-kfree_rcu.patch",
+      "id": "cve-2026-98432-source",
+      "cve": [
+        "CVE-2026-98432"
+      ],
+      "artifact_type": "kernel_source_patch",
+      "version": "context backport of e3f33b0a1d89; two kfree to kfree_rcu sites",
+      "applicability": "source diff recorded against 4.18.0-553.6.1.el8 context only; not a loadable module; not CentOS 7 or generic EL8",
+      "guide_path": "0cve/kernel/cve-2026-98432/README.md",
+      "guide_review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-98432/README.md",
+      "license": "GPL-2.0-only (Linux kernel derivative). License text vendored from linux v7.3 LICENSES/preferred/GPL-2.0",
+      "test_limits": "historical TCG sandbox load/perf/~10min RR-TS; not rerun; no KASAN; no 72h soak; no production approval; diff not proven to rebuild the withheld .ko",
+      "blockers": [],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/cve-2026-98432-kfree_rcu.patch",
+      "guide_pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/README.md",
+      "guide_pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/kernel/cve-2026-98432/README.md",
+      "bytes": 5255,
+      "sha256": "af0951877f56bcf37f64c0dbd35d1a7ad26811b6809ad47f601a8b2267d5f556",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-98432/README.md",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/README.md",
+      "id": "cve-2026-98432-guide",
+      "cve": [
+        "CVE-2026-98432"
+      ],
+      "artifact_type": "guide",
+      "version": "2026-11-08",
+      "applicability": "same kernel vermagic limit as the source item",
+      "test_limits": "describes historical tests; this review did not rerun them",
+      "blockers": [],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/kernel/cve-2026-99999/rhel8-backport-reconstructed.patch",
+      "bytes": 3820,
+      "sha256": "124bb4415346aa0a2e41ade18f915c41eebd5f2d567e5b37133d002ea66fa0f2",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999/rhel8-backport-reconstructed.patch",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/rhel8-backport-reconstructed.patch",
+      "id": "cve-2026-99999-reconstructed-source",
+      "cve": [
+        "CVE-2026-99999"
+      ],
+      "artifact_type": "kernel_source_patch_unverified_reconstruction",
+      "version": "reconstructed RHEL8-context diff; not proven binary-identical to any module",
+      "applicability": "text only, for 4.18.0-553.6.1.el8 context; missing upstream nf_conntrack_bridge.c; not an installable fix",
+      "guide_path": "0cve/kernel/cve-2026-99999/README.md",
+      "guide_review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999/README.md",
+      "license": "GPL-2.0-only for the kernel-derived text. Not corresponding source for the withheld module",
+      "test_limits": "historical tests exercised a module, not a rebuild of this diff; not rerun; no exploit reproducer included",
+      "blockers": [
+        "not proven to match withheld module 5d312d208dd6758902707cc86a62a77f1bd06737b8a6490e39a80b7e0c3ad894",
+        "incomplete versus upstream 6785011f8b16 (no nf_conntrack_bridge.c)"
+      ],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/rhel8-backport-reconstructed.patch",
+      "guide_pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/README.md",
+      "guide_pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/kernel/cve-2026-99999/README.md",
+      "bytes": 5139,
+      "sha256": "7663bc8b13cc3209959f3baa5cff5c5e2061dfdcdefdcd4518e39d220f51c6e6",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999/README.md",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/README.md",
+      "id": "cve-2026-99999-guide",
+      "cve": [
+        "CVE-2026-99999"
+      ],
+      "artifact_type": "guide",
+      "version": "2026-11-08",
+      "applicability": "documents the reconstructed diff and withholds the module",
+      "test_limits": "historical only",
+      "blockers": [],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/kernel/cve-2026-99999-98432-cumulative/combined-cve-2026-99999-98432.as-built.patch",
+      "bytes": 5105,
+      "sha256": "f634fa0a1d9c7c90f6d46f08207e871825d3b1e68bf11d9ca95096760ad5c5bc",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999-98432-cumulative/combined-cve-2026-99999-98432.as-built.patch",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/combined-cve-2026-99999-98432.as-built.patch",
+      "id": "cumulative-cdo-as-built-source",
+      "cve": [
+        "CVE-2026-99999",
+        "CVE-2026-98432"
+      ],
+      "artifact_type": "kernel_source_patch_as_built_record",
+      "version": "as-built helper variant; not the missing inline-preferred variant; not a reproducibility proof",
+      "applicability": "recorded combined diff for vermagic 4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions; cumulative module would replace older modules and must not be stacked; module itself withheld",
+      "guide_path": "0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "guide_review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "license": "GPL-2.0-only for the kernel-derived text. Not complete corresponding source for the withheld .ko",
+      "test_limits": "historical TCG replace/rollback/5-cycle/~10min functional and ~30min comparison soak; not rerun; no KASAN; p99 noise; KLP_REPLACE flag not reconfirmed in printable strings",
+      "blockers": [
+        "as-built name is not a rebuild proof",
+        "symbol table shows isra.31 and isra.33 together"
+      ],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/combined-cve-2026-99999-98432.as-built.patch",
+      "guide_pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "guide_pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "bytes": 6021,
+      "sha256": "8088805e39d83be8dde9e672d7c423ace70f97d4a72bfaf4c329c95c999d8057",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "id": "cumulative-guide",
+      "cve": [
+        "CVE-2026-99999",
+        "CVE-2026-98432"
+      ],
+      "artifact_type": "guide",
+      "version": "2026-11-08",
+      "applicability": "cumulative record; do not stack modules",
+      "test_limits": "historical only",
+      "blockers": [],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/php72-unofficial/cve-2026-109618-109619/php-7.2.24-cve-2026-109618-109619.patch",
+      "bytes": 42844,
+      "sha256": "3b727991f308551db0fb4a9b4ea2ae143d4ea415597fab7e07535a80fa9280bf",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/php72-unofficial/cve-2026-109618-109619/php-7.2.24-cve-2026-109618-109619.patch",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/php72-unofficial/cve-2026-109618-109619/php-7.2.24-cve-2026-109618-109619.patch",
+      "id": "php72-unofficial-source",
+      "cve": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "artifact_type": "unofficial_source_partial_mitigation",
+      "version": "unofficial partial mitigation against php-7.2.24; not PHP Group 8.2.35/8.3.36/8.4.27/8.5.12; not the official 7.4/8.0/8.1 EOL branch",
+      "applicability": "official php-7.2.24.tar.gz sha256 01baf7a34c856d2c552121fbad7296a8cde18389ce83db32f18252bc1cee4dd6 only; rebuild and restart all workers; not a runtime hotpatch; no CentOS/EL8 drop-in binary",
+      "guide_path": "0cve/php72-unofficial/cve-2026-109618-109619/README.md",
+      "guide_review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/php72-unofficial/cve-2026-109618-109619/README.md",
+      "license": "PHP License 3.01 for PHP sources plus Zend Engine License 2.00 for Zend sources, copied from tag php-7.2.24. Not a PHP Group release",
+      "test_limits": "2026-11-08 dry-run --fuzz=0 against official tarball exited 0 (18 files) and tarball sha256 was recomputed. No compile this review. Historical 2026-10-21 Ubuntu 24.04 CLI/built-in-server checks not rerun. No EL8 build, no .phpt suite, no ionCube/opcache/mysqli/gd, no FastCGI keep-alive test",
+      "blockers": [],
+      "notes": [
+        "extension allocators that still zend_bailout are unchanged",
+        "upload progress disabled",
+        "residual non-OOM state and worker-restart availability risk"
+      ],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/php72-unofficial/cve-2026-109618-109619/php-7.2.24-cve-2026-109618-109619.patch",
+      "guide_pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/php72-unofficial/cve-2026-109618-109619/README.md",
+      "guide_pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/php72-unofficial/cve-2026-109618-109619/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/php72-unofficial/cve-2026-109618-109619/README.md",
+      "bytes": 10572,
+      "sha256": "646c358c885871a6bd3cda4891ad0e0b169a39803ff87c116e835c5e2cd3b724",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/php72-unofficial/cve-2026-109618-109619/README.md",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/php72-unofficial/cve-2026-109618-109619/README.md",
+      "id": "php72-guide",
+      "cve": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "artifact_type": "guide",
+      "version": "2026-11-08",
+      "applicability": "unofficial PHP 7.2.24 source mitigation",
+      "test_limits": "dry-run only in this review",
+      "blockers": [],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/php72-unofficial/cve-2026-109618-109619/README.md"
+    },
+    {
+      "availability": "published",
+      "path": "0cve/kernel/MODULES-WITHHELD.md",
+      "bytes": 2802,
+      "sha256": "8d7187de858c4eaea8a65dceebab62ddeb931417f75a1713c98eea593a43d09e",
+      "review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/MODULES-WITHHELD.md",
+      "pinned_commit": "9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad",
+      "pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/MODULES-WITHHELD.md",
+      "id": "modules-withheld-guide",
+      "cve": [
+        "CVE-2026-98432",
+        "CVE-2026-99999"
+      ],
+      "artifact_type": "guide",
+      "version": "2026-11-08",
+      "applicability": "identifies withheld modules; no download",
+      "test_limits": "readelf metadata only",
+      "blockers": [],
+      "pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/MODULES-WITHHELD.md"
+    },
+    {
+      "id": "cve-2026-98432-ko",
+      "cve": [
+        "CVE-2026-98432"
+      ],
+      "availability": "withheld",
+      "artifact_type": "kernel_livepatch_module",
+      "module_name": "kpatch_cve98432",
+      "version": "vermagic 4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions; build-id sha1 34946b5d98b3799e35bd6ab204f4ebd4d6b66f4e",
+      "applicability": "exact vermagic only; not generic CentOS 7/8 or EL8; must not stack with the other two modules",
+      "bytes": 2378680,
+      "sha256": "ca98b2d13cac13ba93ac7b88ed418420b6c258c234539f945d6166222b31c202",
+      "path": null,
+      "review_branch_url": null,
+      "guide_path": "0cve/kernel/cve-2026-98432/README.md",
+      "guide_review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-98432/README.md",
+      "license": "MODULE_LICENSE string is GPL. That is not a completed GPLv2 distribution (no complete corresponding source, build scripts, or binary notice bundle)",
+      "test_limits": "historical TCG tests not rerun; no KASAN; ~10 min not 72h; kpatch unload CLI historically wedged",
+      "blockers": [
+        "GPL-2.0 complete corresponding source and build scripts are not in the review input",
+        "no reproducible rebuild of this .ko was performed",
+        "unstripped DWARF still contains absolute build-host paths"
+      ],
+      "pinned_blob_url": null,
+      "pinned_raw_url": null,
+      "guide_pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/README.md",
+      "guide_pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-98432/README.md"
+    },
+    {
+      "id": "cve-2026-99999-ko",
+      "cve": [
+        "CVE-2026-99999"
+      ],
+      "availability": "withheld",
+      "artifact_type": "kernel_livepatch_module",
+      "module_name": "livepatch_cve_2026_99999",
+      "version": "vermagic 4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions; build-id sha1 0d37ce2232a3679b429c71cf6b520126eef4bd49",
+      "applicability": "exact vermagic only; must not stack with kpatch_cve98432 or the cumulative module",
+      "bytes": 3541256,
+      "sha256": "5d312d208dd6758902707cc86a62a77f1bd06737b8a6490e39a80b7e0c3ad894",
+      "path": null,
+      "review_branch_url": null,
+      "guide_path": "0cve/kernel/cve-2026-99999/README.md",
+      "guide_review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999/README.md",
+      "license": "MODULE_LICENSE string is GPL. Reconstructed diff is not proven corresponding source",
+      "test_limits": "historical comparison tests not rerun; full bad-checksum matrix was not part of the historical functional check",
+      "blockers": [
+        "standalone source is a reconstruction, not proven binary-identical",
+        "GPL-2.0 complete corresponding source and build scripts are absent",
+        "unstripped DWARF still contains absolute build-host paths",
+        "symbol table has nfqnl_build_packet_message.isra.31 and isra.33 rodata"
+      ],
+      "pinned_blob_url": null,
+      "pinned_raw_url": null,
+      "guide_pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/README.md",
+      "guide_pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999/README.md"
+    },
+    {
+      "id": "cumulative-cdo-ko",
+      "cve": [
+        "CVE-2026-99999",
+        "CVE-2026-98432"
+      ],
+      "availability": "withheld",
+      "artifact_type": "kernel_livepatch_module",
+      "module_name": "livepatch_cve_2026_99999_98432",
+      "version": "CDO cumulative only; sha256 a4efcea8...; not stage2/KB 4a4f00e6; vermagic 4.18.0-553.6.1.el8.x86_64 SMP mod_unload modversions; build-id sha1 02b7f08fc066aa247036b038d085f208b20fcd2e",
+      "applicability": "exact vermagic only; replaces older modules; must not be stacked with kpatch_cve98432 or livepatch_cve_2026_99999",
+      "bytes": 5523784,
+      "sha256": "a4efcea8aca6da9c93f60d8bef25c947146064de36ba5d78ac29425b0c144847",
+      "path": null,
+      "review_branch_url": null,
+      "guide_path": "0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "guide_review_branch_url": "https://github.com/Jams-78/wlocs/blob/cursor/cve-hotpatch-publication-2088/0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "license": "MODULE_LICENSE string is GPL. as-built patch name is not corresponding-source proof",
+      "test_limits": "historical TCG replace, rollback, 5 cycles, perf, ~10 min functional, ~30 min three-way soak; not rerun; KLP_REPLACE not reconfirmed from strings",
+      "blockers": [
+        "as-built naming is not a reproducibility proof",
+        "GPL-2.0 complete corresponding source and build scripts are absent",
+        "unstripped DWARF still contains absolute build-host paths",
+        "isra.31 function versus isra.33 rodata"
+      ],
+      "pinned_blob_url": null,
+      "pinned_raw_url": null,
+      "guide_pinned_blob_url": "https://github.com/Jams-78/wlocs/blob/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/README.md",
+      "guide_pinned_raw_url": "https://raw.githubusercontent.com/Jams-78/wlocs/9aa52f4bfc2da82eb79c09fac148b55e6a4d58ad/0cve/kernel/cve-2026-99999-98432-cumulative/README.md"
+    },
+    {
+      "id": "cumulative-stage2-kb",
+      "cve": [
+        "CVE-2026-99999",
+        "CVE-2026-98432"
+      ],
+      "availability": "not_in_review_input",
+      "artifact_type": "kernel_livepatch_module",
+      "version": "historical hash prefix 4a4f00e6 only; bytes not reviewed",
+      "applicability": "not published and not identified beyond a historical hash prefix",
+      "bytes": null,
+      "sha256": null,
+      "path": null,
+      "review_branch_url": null,
+      "test_limits": "historical comparison mentioned a KB build; this review did not receive the file",
+      "blockers": [
+        "file intentionally absent from the review input"
+      ],
+      "pinned_blob_url": null,
+      "pinned_raw_url": null
+    },
+    {
+      "id": "php72-binary",
+      "cve": [
+        "CVE-2026-109618",
+        "CVE-2026-109619"
+      ],
+      "availability": "not_published",
+      "artifact_type": "php_binary",
+      "version": "none",
+      "applicability": "no drop-in CentOS, EL8, or Debian binary is claimed or shipped",
+      "bytes": null,
+      "sha256": null,
+      "path": null,
+      "review_branch_url": null,
+      "test_limits": "no binary to test",
+      "blockers": [
+        "unofficial source mitigation requires a local rebuild; no binary was supplied for publication"
+      ],
+      "pinned_blob_url": null,
+      "pinned_raw_url": null
+    }
+  ],
+  "pinned_commit_note": "pinned_blob_url and pinned_raw_url point at this commit. Files changed after it, including this catalog, use the VM catalog's tip_commit URLs."
+}
